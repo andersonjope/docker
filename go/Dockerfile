@@ -3,12 +3,10 @@ FROM golang:alpine AS build
 WORKDIR /usr/src/go/hello
 
 COPY ./ ./
-RUN go mod download && go mod verify
 
-COPY . .
-RUN go build -o /go-fullcycle-app
+RUN CGO_ENABLED=0 GOOS=linux go build -o /go-fullcycle-app
 
-FROM gcr.io/distroless/static-debian11
+FROM gcr.io/distroless/static-debian12
 
 WORKDIR /
 
