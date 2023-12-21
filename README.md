@@ -2,5 +2,5 @@
 
 # Docker Pull Command
 
-docker pull andersonjope/fullcycle
+docker pull andersonjope/go
  
